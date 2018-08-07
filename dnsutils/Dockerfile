@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 LABEL maintainer=dev@dschuldt.de
 
-RUN apt update && apt install -y curl dnsutils telnet netcat
+RUN apt update && apt install -y curl dnsutils telnet netcat nmap
 
 CMD ["sleep", "infinity"]
