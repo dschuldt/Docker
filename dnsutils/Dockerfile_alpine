@@ -3,4 +3,4 @@ LABEL maintainer=dev@dschuldt.de
 
 RUN apk add --update-cache curl bind-tools busybox-extras netcat-openbsd nmap
 
-CMD ["sleep", "infinity"]
+CMD ["tail","-f","/dev/null"]
