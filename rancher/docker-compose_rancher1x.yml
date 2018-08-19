@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  rancher:
+    image: rancher/server:latest
+    container_name: rancher
+    volumes:
+      - data:/var/lib/mysql/
+    ports:
+      - 8080:8080
+    restart: unless-stopped  
+volumes:
+  data:
