@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jenkins-jnlp-slave:
+    image: dschuldt/jenkins-jnlp-slave:1.0
+    container_name: jenkins-jnlp-slave
+    command: -url ${JENKINS_URL} ${SECRET} ${AGENT_NAME}
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: jenkins_default
