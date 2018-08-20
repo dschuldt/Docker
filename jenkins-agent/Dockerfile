@@ -14,6 +14,9 @@ ADD nodesource.gpg.key /tmp/nodesource.gpg.key
 RUN echo 'deb https://deb.nodesource.com/node_8.x sid main' > /etc/apt/sources.list.d/nodesource.list
 RUN apt-key add /tmp/nodesource.gpg.key && apt update && apt install -y nodejs
 
+# ansible
+RUN apt install -y ansible
+
 # jenkins slave setup
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 COPY remoting-3.25.jar /usr/share/jenkins/slave.jar
