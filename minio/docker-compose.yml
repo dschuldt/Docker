@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+ minio:
+   image: minio/minio
+   container_name: minio
+   volumes:
+     - data:/data
+     - config:/root/.minio
+   ports:
+     - 9090:9000
+   command: server /data
+   environment:
+     MINIO_ACCESS_KEY: 12345678910
+     MINIO_SECRET_KEY: 10987654321
+volumes:
+  data:
+  config:
+    
