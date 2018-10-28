@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  clamav-rest:
+    image: dschuldt/clamav-rest:latest
+    container_name: clamav-rest
+    volumes:
+      - data:/var/lib/clamav/
+    ports:
+      - "80:80"
+    restart: unless-stopped  
+
+volumes:
+  data:
