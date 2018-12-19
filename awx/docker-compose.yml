@@ -63,7 +63,7 @@ services:
       AWX_ADMIN_PASSWORD: password
 
   rabbitmq:
-    image: ansible/awx_rabbitmq:3.7.4
+    image: ansible/awx_rabbitmq:latest
     restart: unless-stopped
     environment:
       RABBITMQ_DEFAULT_VHOST: awx
@@ -74,7 +74,7 @@ services:
     restart: unless-stopped
 
   postgres:
-    image: postgres:9.6
+    image: postgres:latest
     restart: unless-stopped
     volumes:
       - postgres:/var/lib/postgresql/data:Z
