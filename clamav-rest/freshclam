@@ -1,0 +1,4 @@
+#!/bin/sh
+
+freshclam > /dev/stdout
+exit 0
