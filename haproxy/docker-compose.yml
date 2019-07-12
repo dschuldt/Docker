@@ -1,0 +1,17 @@
+version: "3"
+services:
+  haproxy:
+    image: dschuldt/haproxy:2.0.1
+    container_name: haproxy
+    ports:
+    - 80:80
+    - 443:443
+    - 9000:9000
+    volumes:
+    - ./haproxy.cfg:/etc/haproxy/haproxy.cfg  
+  simple-deployment:
+    image: dschuldt/simple-deployment:1.0
+    container_name: simple-deployment
+  simple-deployment-2:
+    image: dschuldt/simple-deployment:1.0
+    container_name: simple-deployment-2
