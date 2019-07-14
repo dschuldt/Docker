@@ -15,3 +15,12 @@ services:
   simple-deployment-2:
     image: dschuldt/simple-deployment:1.0
     container_name: simple-deployment-2
+  simple-deployment-3:
+    image: dschuldt/simple-deployment:1.0
+    container_name: simple-deployment-3
+  simple-deployment-4:
+    image: dschuldt/simple-deployment:1.0
+    container_name: simple-deployment-4    
+  httpd:
+    image: httpd
+    container_name: httpd  
