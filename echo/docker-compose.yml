@@ -1,0 +1,12 @@
+version: "3"
+services:
+  hello:
+    image: dschuldt/echo:1.0
+    container_name: echo_hello
+    environment:
+      API_ENDPOINT: http://world:80/echo/hello-world
+    ports:
+    - 8080:80
+  world: 
+    image: dschuldt/echo:1.0
+    container_name: echo_world
