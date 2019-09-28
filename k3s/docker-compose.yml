@@ -2,7 +2,7 @@ version: "3.7"
 services:
   
   rancher:
-    image: rancher/rancher:v2.2.8
+    image: rancher/rancher:v2.3.0-rc9
     container_name: rancher
     ports:
     - 80:80
@@ -14,8 +14,8 @@ services:
         ipv4_address: 172.16.0.10
 
   server:
-    image: rancher/k3s:v0.9.0-rc2
-    command: server --disable-agent --no-deploy traefik --no-deploy servicelb --kube-apiserver-arg service-node-port-range=80-32767
+    image: rancher/k3s:v0.9.1
+    command: server --bind-address 172.16.0.11 --disable-agent --no-deploy traefik --no-deploy servicelb --kube-apiserver-arg service-node-port-range=80-32767 --kube-apiserver-arg enable-aggregator-routing=true
     environment:
     - K3S_CLUSTER_SECRET=somethingtotallyrandom
     - K3S_KUBECONFIG_OUTPUT=/output/kubeconfig.yaml
@@ -31,7 +31,7 @@ services:
         ipv4_address: 172.16.0.11
 
   node-1:
-    image: rancher/k3s:v0.9.0-rc2
+    image: rancher/k3s:v0.9.1
     tmpfs:
     - /run
     - /var/run
@@ -47,7 +47,7 @@ services:
         ipv4_address: 172.16.0.12
     
   node-2:
-    image: rancher/k3s:v0.9.0-rc2
+    image: rancher/k3s:v0.9.1
     tmpfs:
     - /run
     - /var/run

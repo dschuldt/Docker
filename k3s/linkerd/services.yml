@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: linkerd-web-lb
+  namespace: linkerd
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8084
+  selector:
+    linkerd.io/control-plane-component: web
+    linkerd.io/control-plane-ns: linkerd
+  externalTrafficPolicy: Local
